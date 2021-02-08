@@ -9,6 +9,11 @@ const Addtask = () => {
   const [newTask, setnewTask] = useState("");
 
   const handelChange = (e) => setnewTask(e.target.value);
+  const handel = () => {
+    if (newTask === "") {
+      alert("remplir input");
+    } else dispatch(addtask(newTask), setnewTask(""));
+  };
 
   return (
     <div style={{ display: "flex", justifyContent: "space-between" }}>
@@ -23,10 +28,7 @@ const Addtask = () => {
         />
         <InputGroup.Append>
           {
-            <Button
-              variant="success"
-              onClick={(e) => dispatch(addtask(newTask), setnewTask(""))}
-            >
+            <Button variant="success" onClick={(e) => handel()}>
               add Task
             </Button>
           }
